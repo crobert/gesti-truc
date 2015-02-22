@@ -1,21 +1,21 @@
 <?php
 
-class Users extends CI_Controller {
+class Collections extends CI_Controller {
 
-    function Users()
+    function Collections()
     {
         parent::__construct();
     }
 
     function index()
     {
-        $users = new User();
-        $users->get_iterated();
+        $collections = new Collection();
+        $collections->get_iterated();
 
-        $data['users'] = $users;
+        $data['collections'] = $collections;
         $data['titre_page'] = 'Aperçu';
-        $data['vue'] = 'users';
-        $data['menu'] = 'users';
+        $data['vue'] = 'collections';
+        $data['menu'] = 'collections';
         $this->load->view('template', $data);
 
     }
