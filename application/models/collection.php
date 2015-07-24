@@ -2,23 +2,36 @@
 
 class Collection extends DataMapper {
 
-    var $has_many = array('user');
-    var $has_one = array('parameter','state');
+    function getAll(){
+        $this->db->select('*');
+        $this->db->from('collections');
+        return $this->db->get()->result();
+    }
+    function getById($id)
+    {
+        $this->db->select('*');
+        $this->db->from('collections');
+        $this->db->where('id', $id);
+        return $this->db->get()->row();
+    }
 
-    var $validation = array(
-        'name' => array(
-            'label' => 'Name',
-            'rules' => array('required', 'trim', 'unique',  'min_length' => 1, 'max_length' => 250),
-        ),
-        'description' => array(
-            'label' => 'Description',
-            'rules' => array('required', 'trim'),
-        ),
-        'type' => array(
-            'label' => 'Type',
-            'rules' => array('required', 'trim'),
-        )
-    );
+    function add($data)
+    {
+        $this->db->insert('collections', $data);
+        return $this->db->insert_id();
+    }
+
+    function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('collections');
+    }
+
+    function update($id, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('collections', $data);
+    }
 }
 
 /* End of file book.php */

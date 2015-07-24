@@ -9,8 +9,8 @@ class Collections extends CI_Controller {
 
     function index()
     {
-        $collections = new Collection();
-        $collections->get_iterated();
+        $this->load->model('collection');
+        $collections = $this->collection->getAll();
 
         $data['collections'] = $collections;
         $data['titre_page'] = 'Aperçu';
@@ -20,55 +20,61 @@ class Collections extends CI_Controller {
 
     }
 
-    function register()
-    {
-        // Create user object
-        $u = new User();
+    function add(){
+        //Règles pour tous les champs
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('name', 'Nom', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
 
-        // Put user supplied data into user object
-        // (no need to validate the post variables in the controller,
-        // if you've set your DataMapper models up with validation rules)
-        $u->username = $this->input->post('username');
-        $u->password = $this->input->post('password');
-        $u->confirm_password = $this->input->post('confirm_password');
-        $u->email = $this->input->post('email');
+        if ($this->form_validation->run() == FALSE) {
 
-        // Attempt to save the user into the database
-        if ($u->save())
-        {
-            echo '<p>You have successfully registered</p>';
+
+            $data['titre_page'] = 'Aperçu';
+            $data['vue'] = 'collections/add_view.php';
+            $data['menu'] = 'collections';
+            $this->load->helper('form');
+            $this->load->view('template', $data);
+
+
+
+        } else {
+            //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
+            $this->load->model('collection');
+            $id= $this->collection->add($this->input->post());
+            redirect('collections');
         }
-        else
-        {
-            // Show all error messages
-            echo '<p>' . $u->error->string . '</p>';
+    }
+
+    function edit($id){
+
+        $this->load->model('collection');
+        $c= $this->collection->getById($id);
+
+        //Règles pour tous les champs
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('name', 'Nom', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
+
+
+        if ($this->form_validation->run() == FALSE) {
+
+            $data['titre_page'] = 'Aperçu';
+            $data['vue'] = 'collections/edit_view.php';
+            $data['menu'] = 'collections';
+            $data['c'] = $c;
+            $this->load->helper('form');
+            $this->load->view('template', $data);
+
+        } else {
+            //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
+            $this->load->model('collection');
+            $id= $this->collection->update($id,$this->input->post());
+            redirect('collections');
         }
     }
 
-    function login()
-    {
-        // Create user object
-        $u = new User();
-
-        // Put user supplied data into user object
-        // (no need to validate the post variables in the controller,
-        // if you've set your DataMapper models up with validation rules)
-        $u->username = $this->input->post('username');
-        $u->password = $this->input->post('password');
-
-        // Attempt to log user in with the data they supplied, using the login function setup in the User model
-        // You might want to have a quick look at that login function up the top of this page to see how it authenticates the user
-        if ($u->login())
-        {
-            echo '<p>Welcome ' . $u->username . '!</p>';
-            echo '<p>You have successfully logged in so now we know that your email is ' . $u->email . '.</p>';
-        }
-        else
-        {
-            // Show the custom login error message
-            echo '<p>' . $u->error->login . '</p>';
-        }
-    }
 }
 
 /* End of file users.php */
