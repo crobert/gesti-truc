@@ -19,6 +19,7 @@
                 <li <?php echo ($menu=='')?"class='active'":"";?>><a href="<?php echo site_url(); ?>">Home</a></li>
                 <li <?php echo ($menu=='users')?"class='active'":"";?>><a href="<?php echo site_url('users'); ?>">Users</a></li>
                 <li <?php echo ($menu=='collections')?"class='active'":"";?>><a href="<?php echo site_url('collections'); ?>">Collections</a></li>
+                <li <?php echo ($menu=='categories')?"class='active'":"";?>><a href="<?php echo site_url('categories'); ?>">Categories</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
