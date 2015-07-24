@@ -3,7 +3,7 @@
  * @var $u object
  */
 ?>
-<!-- ----------------------------------------------- Fomulaire de nouveau memo ----------------------------------------------- -->
+<!-- ----------------------------------------------- Update user form ----------------------------------------------- -->
 
 <form name="user_edit" id="user_edit" class="formular" enctype="multipart/form-data"
       action="<?php echo site_url('users/edit/'.$u->id); ?>" method="post" >

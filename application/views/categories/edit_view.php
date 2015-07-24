@@ -3,9 +3,9 @@
  * @var $c object
  */
 ?>
-<!-- ----------------------------------------------- Fomulaire de nouveau memo ----------------------------------------------- -->
+<!-- ----------------------------------------------- Update category form ----------------------------------------------- -->
 
-<form name="category_add" id="category_add" class="formular" enctype="multipart/form-data"
+<form name="category_edit" id="category_edit" class="formular" enctype="multipart/form-data"
       action="<?php echo site_url('categories/edit/'.$c->id); ?>" method="post" >
 
     <div class="actions">

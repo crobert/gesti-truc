@@ -3,7 +3,7 @@
  *
  */
 ?>
-<!-- ----------------------------------------------- Fomulaire de nouveau memo ----------------------------------------------- -->
+<!-- ----------------------------------------------- New category form ----------------------------------------------- -->
 
 <form name="category_add" id="category_add" class="formular" enctype="multipart/form-data"
       action="<?php echo site_url('categories/add/'); ?>" method="post" >

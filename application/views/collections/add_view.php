@@ -3,7 +3,7 @@
  *
  */
 ?>
-<!-- ----------------------------------------------- Fomulaire de nouveau memo ----------------------------------------------- -->
+<!-- ----------------------------------------------- New collection form----------------------------------------------- -->
 
 <form name="collection_add" id="collection_add" class="formular" enctype="multipart/form-data"
       action="<?php echo site_url('collections/add/'); ?>" method="post" >

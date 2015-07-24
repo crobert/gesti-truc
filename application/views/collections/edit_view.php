@@ -3,9 +3,9 @@
  * @var $c object
  */
 ?>
-<!-- ----------------------------------------------- Fomulaire de nouveau memo ----------------------------------------------- -->
+<!-- ----------------------------------------------- Update collection form ----------------------------------------------- -->
 
-<form name="collection_add" id="collection_add" class="formular" enctype="multipart/form-data"
+<form name="collection_edit" id="collection_edit" class="formular" enctype="multipart/form-data"
       action="<?php echo site_url('collections/edit/'.$c->id); ?>" method="post" >
 
     <div class="actions">
