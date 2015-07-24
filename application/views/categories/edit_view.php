@@ -20,9 +20,9 @@
         <div class="bloc_d">&nbsp;
         </div>
     </div>
-    <!--Champs invisibles pour l'utilisateurs-->
+    <!--invisible fields-->
 
-    <!--Champs à remplir par l'utilisateurs-->
+    <!--Fields to complete-->
     <label for="name">Nom</label><input name="name" id="name" value="<?php echo $c->name; ?>">
     <label for="description">Description</label><input name="description" id="description" value="<?php echo $c->description; ?>">
     <label for="collection_id">Collection</label><input name="collection_id" id="collection_id" value="<?php echo $c->collection_id; ?>">

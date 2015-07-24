@@ -14,7 +14,7 @@ class Collections extends CI_Controller {
 
         $data['collections'] = $collections;
         $data['titre_page'] = 'Aperçu';
-        $data['vue'] = 'collections';
+        $data['vue'] = 'collections/collections.php';
         $data['menu'] = 'collections';
         $this->load->view('template', $data);
 

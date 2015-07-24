@@ -1,11 +1,9 @@
 <?php
 /**
- * @var $tiersChoisi int
- * @var $tiers array
- * @var $departements array
+ *
  */
 ?>
-<!-- ----------------------------------------------- Fomulaire de nouveau memo ----------------------------------------------- -->
+<!-- ----------------------------------------------- New user form ----------------------------------------------- -->
 
 <form name="user_add" id="user_add" class="formular" enctype="multipart/form-data"
       action="<?php echo site_url('users/add/'); ?>" method="post" >
@@ -22,9 +20,9 @@
         <div class="bloc_d">&nbsp;
         </div>
     </div>
-    <!--Champs invisibles pour l'utilisateurs-->
+    <!--invisible fields-->
 
-    <!--Champs à remplir par l'utilisateurs-->
+    <!--Fields to complete-->
     <label for="name">Nom</label><input name="name" id="name" value="">
     <label for="username">Username</label><input name="username" id="username" value="">
     <label for="email">Email</label><input name="email" id="email" value="">

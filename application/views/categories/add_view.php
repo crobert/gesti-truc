@@ -1,8 +1,6 @@
 <?php
 /**
- * @var $tiersChoisi int
- * @var $tiers array
- * @var $departements array
+ *
  */
 ?>
 <!-- ----------------------------------------------- Fomulaire de nouveau memo ----------------------------------------------- -->
@@ -22,9 +20,9 @@
         <div class="bloc_d">&nbsp;
         </div>
     </div>
-    <!--Champs invisibles pour l'utilisateurs-->
+    <!--invisible fields-->
 
-    <!--Champs à remplir par l'utilisateurs-->
+    <!--Fields to complete-->
     <label for="name">Nom</label><input name="name" id="name" value="">
     <label for="description">Description</label><input name="description" id="description" value="">
     <label for="collection_id">Collection</label><input name="collection_id" id="collection_id" value="">

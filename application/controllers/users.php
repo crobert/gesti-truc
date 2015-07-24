@@ -14,7 +14,7 @@ class Users extends CI_Controller {
 
         $data['users'] = $collections;
         $data['titre_page'] = 'Aperçu';
-        $data['vue'] = 'users';
+        $data['vue'] = 'users/users.php';
         $data['menu'] = 'users';
         $this->load->view('template', $data);
 

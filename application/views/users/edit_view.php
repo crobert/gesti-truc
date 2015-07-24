@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $c object
+ * @var $u object
  */
 ?>
 <!-- ----------------------------------------------- Fomulaire de nouveau memo ----------------------------------------------- -->
@@ -20,9 +20,9 @@
         <div class="bloc_d">&nbsp;
         </div>
     </div>
-    <!--Champs invisibles pour l'utilisateurs-->
+    <!--invisible fields-->
 
-    <!--Champs à remplir par l'utilisateurs-->
+    <!--Fields to complete-->
     <label for="name">Nom</label><input name="name" id="name" value="<?php echo $u->name; ?>">
     <label for="username">Username</label><input name="username" id="username" value="<?php echo $u->username; ?>">
     <label for="email">Email</label><input name="email" id="email" value="<?php echo $u->email; ?>">

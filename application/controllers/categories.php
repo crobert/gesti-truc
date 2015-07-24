@@ -14,7 +14,7 @@ class Categories extends CI_Controller {
 
         $data['categories'] = $categories;
         $data['titre_page'] = 'Aperçu';
-        $data['vue'] = 'categories';
+        $data['vue'] = 'categories/categories.php';
         $data['menu'] = 'categories';
         $this->load->view('template', $data);
 
