@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/styles.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/jquery-ui/jquery-ui.min.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/chosen/chosen.css'); ?>">
 
 
     <!--  Chargement du js-->
@@ -21,6 +22,7 @@
     <script type="text/javascript" src="<?php echo base_url('assets/jquery-2.1.3.min.map'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/jquery-ui/jquery-ui.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/chosen/chosen.jquery.min.js'); ?>"></script>
 
 </head>
 
