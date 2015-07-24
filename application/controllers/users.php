@@ -9,15 +9,70 @@ class Users extends CI_Controller {
 
     function index()
     {
-        $users = new User();
-        $users->get_iterated();
+        $this->load->model('user');
+        $collections = $this->user->getAll();
 
-        $data['users'] = $users;
+        $data['users'] = $collections;
         $data['titre_page'] = 'Aperçu';
         $data['vue'] = 'users';
         $data['menu'] = 'users';
         $this->load->view('template', $data);
 
+    }
+
+    function add(){
+        //Règles pour tous les champs
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('name', 'Nom', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
+
+        if ($this->form_validation->run() == FALSE) {
+
+
+            $data['titre_page'] = 'Aperçu';
+            $data['vue'] = 'users/add_view.php';
+            $data['menu'] = 'users';
+            $this->load->helper('form');
+            $this->load->view('template', $data);
+
+
+
+        } else {
+            //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
+            $this->load->model('user');
+            $id= $this->user->add($this->input->post());
+            redirect('users');
+        }
+    }
+
+    function edit($id){
+
+        $this->load->model('user');
+        $u= $this->user->getById($id);
+
+        //Règles pour tous les champs
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('name', 'Nom', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
+
+
+        if ($this->form_validation->run() == FALSE) {
+
+            $data['titre_page'] = 'Aperçu';
+            $data['vue'] = 'users/edit_view.php';
+            $data['menu'] = 'users';
+            $data['u'] = $u;
+            $this->load->helper('form');
+            $this->load->view('template', $data);
+
+        } else {
+            //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
+            $this->load->model('user');
+            $id= $this->user->update($id,$this->input->post());
+            redirect('users');
+        }
     }
 
     function register()
