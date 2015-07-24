@@ -1,6 +1,6 @@
 <?php
 
-class User extends DataMapper {
+class User extends CI_Model {
 
     var $has_many = array('collection');
 

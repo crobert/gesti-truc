@@ -1,6 +1,6 @@
 <?php
 
-class Category extends DataMapper {
+class Category extends CI_Model {
 
     function getAll(){
         $this->db->select('*');
