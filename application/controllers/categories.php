@@ -82,6 +82,26 @@ class Categories extends CI_Controller {
         }
     }
 
+    function detail($id){
+        //$this->load->model('item');
+        $this->load->model('category');
+        $c= $this->category->getById($id);
+        //todo test si $c existe
+
+
+        //$items = $this->item->getByCategory($id);
+        $items = array();
+
+        $data['titre_page'] = 'Aperçu';
+        $data['vue'] = 'categories/detail_view.php';
+        $data['menu'] = 'categories';
+        $data['c'] = $c;
+        $data['items'] = $items;
+       // $data['categories'] = $categories;
+        $this->load->view('template', $data);
+
+    }
+
 }
 
 /* End of file categories.php */
