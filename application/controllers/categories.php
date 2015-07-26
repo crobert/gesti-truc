@@ -83,14 +83,13 @@ class Categories extends CI_Controller {
     }
 
     function detail($id){
-        //$this->load->model('item');
+        $this->load->model('item');
         $this->load->model('category');
         $c= $this->category->getById($id);
         //todo test si $c existe
 
 
-        //$items = $this->item->getByCategory($id);
-        $items = array();
+        $items = $this->item->getByCategory($id);
 
         $data['titre_page'] = 'Aperçu';
         $data['vue'] = 'categories/detail_view.php';

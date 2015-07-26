@@ -7,10 +7,10 @@
 
     <div class="actions">
         <div class="bloc_g">
-            <a href='<?php echo site_url('categories/edit/'.$i->id);?>'>
+            <a href='<?php echo site_url('items/edit/'.$i->id);?>'>
                 <input class="btn btn-info" type="button" value="Modifier" name="Submit"/>
             </a>
-            <a href="<?php echo site_url('collections'); ?>">
+            <a href="<?php echo site_url('items'); ?>">
                 <input class="btn btn-info" type="button" value="Retour" name="Submit"/>
             </a>
 
