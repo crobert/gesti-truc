@@ -32,11 +32,22 @@
             <option value="<?php echo $c->id; ?>" <?php echo set_select('category_id', $c->id, $c->id==$category);?> ><?php echo $c->name; ?></option>
         <?php endforeach; ?>
     </select>
+    <label for="collectedDate">Date de collection</label><input name="collectedDate" id="collectedDate" value="">
+    <label for="date">Description</label><input name="date" id="date" value="">
+    <label for="from">Reçu de</label><input name="from" id="from" value="">
+    <label for="value">Valeur</label><input name="value" id="value" value="">
+    <label for="picture">Image</label><input name="picture" id="picture" value="">
 
 </form>
 
 <script language="JavaScript" type="text/javascript">
     $(document).ready(function () {
+        $('#date').datepicker({
+            dateFormat: 'dd-mm-yy'
+        });
+        $('#collectedDate').datepicker({
+            dateFormat: 'dd-mm-yy'
+        });
         $(".chzn-select").chosen(
             {
                 no_results_text: "Aucun r&eacute;sultat ne correspond &agrave;",
