@@ -32,6 +32,12 @@ class Collection extends CI_Model {
         $this->db->where('id', $id);
         $this->db->update('collections', $data);
     }
+
+    function getList(){
+        $this->db->select('id, name');
+        $this->db->from('collections');
+        return $this->db->get()->result();
+    }
 }
 
 /* End of file book.php */

@@ -20,7 +20,11 @@ class Categories extends CI_Controller {
 
     }
 
-    function add(){
+    /**
+     * Create a new category
+     * @param string $collection id of the collection you want to add a category
+     */
+    function add($collection=""){
         //Règles pour tous les champs
         $this->load->library('form_validation');
         $this->form_validation->set_rules('name', 'Nom', 'trim|required|xss_clean');
@@ -28,15 +32,16 @@ class Categories extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) {
 
+            $this->load->model('collection');
+            $collections = $this->collection->getList();
 
             $data['titre_page'] = 'Aperçu';
             $data['vue'] = 'categories/add_view.php';
             $data['menu'] = 'categories';
+            $data['collections'] = $collections;
+            $data['collection'] = $collection;
             $this->load->helper('form');
             $this->load->view('template', $data);
-
-
-
 
         } else {
 
@@ -59,10 +64,14 @@ class Categories extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) {
 
+            $this->load->model('collection');
+            $collections = $this->collection->getList();
+
             $data['titre_page'] = 'Aperçu';
             $data['vue'] = 'categories/edit_view.php';
             $data['menu'] = 'categories';
             $data['c'] = $c;
+            $data['collections'] = $collections;
             $this->load->helper('form');
             $this->load->view('template', $data);
 

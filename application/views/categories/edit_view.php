@@ -1,5 +1,6 @@
 <?php
 /**
+ * @var $collections array
  * @var $c object
  */
 ?>
@@ -21,10 +22,15 @@
         </div>
     </div>
     <!--invisible fields-->
-
+    <input type="hidden" name="collection_id" id="collection_id" value="<?php echo $c->collection_id; ?>">
     <!--Fields to complete-->
     <label for="name">Nom</label><input name="name" id="name" value="<?php echo $c->name; ?>">
     <label for="description">Description</label><input name="description" id="description" value="<?php echo $c->description; ?>">
-    <label for="collection_id">Collection</label><input name="collection_id" id="collection_id" value="<?php echo $c->collection_id; ?>">
+    <label for="collection">Collection</label>
+    <select name="collection id="collection class="chzn-select" disabled>
+        <?php foreach($collections as $col) : ?>
+            <option value="<?php echo $col->id; ?>" <?php echo set_select('collection_id', $col->id, $col->id==$c->collection_id);?> ><?php echo $col->name; ?></option>
+        <?php endforeach; ?>
+    </select>
     <label for="parent_id">Parent</label><input name="parent_id" id="parent_id" value="<?php echo $c->parent_id; ?>">
 </form>

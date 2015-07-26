@@ -1,6 +1,7 @@
 <?php
 /**
- *
+ * @var $collections array
+ * @var $collection int
  */
 ?>
 <!-- ----------------------------------------------- New category form ----------------------------------------------- -->
@@ -25,6 +26,23 @@
     <!--Fields to complete-->
     <label for="name">Nom</label><input name="name" id="name" value="">
     <label for="description">Description</label><input name="description" id="description" value="">
-    <label for="collection_id">Collection</label><input name="collection_id" id="collection_id" value="">
+    <label for="collection_id">Collection</label>
+    <select name="collection_id" id="collection_id" class="chzn-select">
+        <?php foreach($collections as $c) : ?>
+            <option value="<?php echo $c->id; ?>" <?php echo set_select('collection_id', $c->id, $c->id==$collection);?> ><?php echo $c->name; ?></option>
+        <?php endforeach; ?>
+    </select>
     <label for="parent_id">Parent</label><input name="parent_id" id="parent_id" value="">
+
 </form>
+
+<script language="JavaScript" type="text/javascript">
+    $(document).ready(function () {
+        $(".chzn-select").chosen(
+            {
+                no_results_text: "Aucun r&eacute;sultat ne correspond &agrave;",
+                allow_single_deselect: true
+            }
+        );
+    });
+</script>
