@@ -8,7 +8,7 @@
 <br/>
 
 <?php foreach($collections as $c){ ?>
-    <a class="vignetteLink" href='<?php echo site_url('collections/edit/'.$c->id);?>'>
+    <a class="vignetteLink" href='<?php echo site_url('collections/detail/'.$c->id);?>'>
         <div class="vignette">
             <?php echo $c->name;  ?>
         </div>

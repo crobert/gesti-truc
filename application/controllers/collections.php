@@ -75,6 +75,19 @@ class Collections extends CI_Controller {
         }
     }
 
+    function detail($id){
+        $this->load->model('collection');
+        $c= $this->collection->getById($id);
+        //todo test si $c existe
+
+        $data['titre_page'] = 'Aperçu';
+        $data['vue'] = 'collections/detail_view.php';
+        $data['menu'] = 'collections';
+        $data['c'] = $c;
+        $this->load->view('template', $data);
+
+    }
+
 }
 
 /* End of file users.php */
