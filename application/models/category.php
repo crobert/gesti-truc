@@ -15,6 +15,14 @@ class Category extends CI_Model {
         return $this->db->get()->row();
     }
 
+    function getByCollection($id)
+    {
+        $this->db->select('*');
+        $this->db->from('categories');
+        $this->db->where('collection_id', $id);
+        return $this->db->get()->result();
+    }
+
     function add($data)
     {
         $this->db->insert('categories', $data);

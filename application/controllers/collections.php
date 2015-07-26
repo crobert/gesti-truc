@@ -77,13 +77,19 @@ class Collections extends CI_Controller {
 
     function detail($id){
         $this->load->model('collection');
+        $this->load->model('category');
         $c= $this->collection->getById($id);
         //todo test si $c existe
+
+
+        $categories = $this->category->getByCollection($id);
+
 
         $data['titre_page'] = 'Aperçu';
         $data['vue'] = 'collections/detail_view.php';
         $data['menu'] = 'collections';
         $data['c'] = $c;
+        $data['categories'] = $categories;
         $this->load->view('template', $data);
 
     }
