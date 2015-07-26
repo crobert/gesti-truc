@@ -27,7 +27,7 @@
     <label for="name">Nom</label><input name="name" id="name" value="<?php echo $c->name; ?>">
     <label for="description">Description</label><input name="description" id="description" value="<?php echo $c->description; ?>">
     <label for="collection">Collection</label>
-    <select name="collection id="collection class="chzn-select" disabled>
+    <select name="collection" id="collection" class="chzn-select" disabled>
         <?php foreach($collections as $col) : ?>
             <option value="<?php echo $col->id; ?>" <?php echo set_select('collection_id', $col->id, $col->id==$c->collection_id);?> ><?php echo $col->name; ?></option>
         <?php endforeach; ?>
