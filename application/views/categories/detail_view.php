@@ -11,7 +11,7 @@
             <a href='<?php echo site_url('categories/edit/'.$c->id);?>'>
                 <input class="btn btn-info" type="button" value="Modifier" name="Submit"/>
             </a>
-            <a href="<?php echo site_url('collections'); ?>">
+            <a href="<?php echo site_url('collections/detail/'.$c->collection_id); ?>">
                 <input class="btn btn-info" type="button" value="Retour" name="Submit"/>
             </a>
 

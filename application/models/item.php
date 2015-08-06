@@ -62,5 +62,5 @@ class Item extends CI_Model
     }
 }
 
-/* End of file book.php */
-/* Location: ./application/models/book.php */
+/* End of file item.php */
+/* Location: ./application/models/item.php */
