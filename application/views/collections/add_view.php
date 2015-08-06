@@ -26,4 +26,5 @@
     <label for="name">Nom</label><input name="name" id="name" value="">
     <label for="description">Description</label><input name="description" id="description" value="">
     <label for="type">Type</label><input name="type" id="type" value="">
+    <label for="picture">Image</label><input type="file" name="picture" id="picture">
 </form>

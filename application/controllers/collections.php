@@ -42,6 +42,37 @@ class Collections extends CI_Controller {
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
             $this->load->model('collection');
             $id= $this->collection->add($this->input->post());
+            //We upload the picture
+            if(isset($_FILES['picture'])){
+                $configUpload['upload_path'] = './uploads/collections';
+                $configUpload['allowed_types'] = 'gif|jpg|png';
+                $configUpload['overwrite'] = true;
+                $configUpload['max_size']	= '10000';
+
+                $_FILES['picture']['name'] = $id."_".$_FILES['picture']['name'];
+
+                $this->load->library('upload', $configUpload);
+                if($this->upload->do_upload('picture'))
+                {
+                    $configImage['image_library'] = 'gd2';
+                    $configImage['source_image']	= './uploads/collections/'.$_FILES['picture']['name'];
+                    $configImage['maintain_ratio'] = TRUE;
+                    $configImage['width']	 = 200;
+                    $configImage['height']	= 200;
+
+                    $this->load->library('image_lib', $configImage);
+                    if ( ! $this->image_lib->resize())
+                    {
+                        //$this->SetMsg($this->image_lib->display_errors(), '', TypeMessage::Error, false);
+                    }
+
+
+                    $this->collection->update($id, array('picture'=> $_FILES['picture']['name'] ));
+                }else{
+                    //On indique l'erreur, l'image reste la même
+                    // $this->SetMsg($this->upload->display_errors(), '', TypeMessage::Error, false);
+                }
+            }
             redirect('collections');
         }
     }
@@ -57,7 +88,6 @@ class Collections extends CI_Controller {
         $this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
         $this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
 
-
         if ($this->form_validation->run() == FALSE) {
 
             $data['titre_page'] = 'Aperçu';
@@ -71,6 +101,38 @@ class Collections extends CI_Controller {
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
             $this->load->model('collection');
             $id= $this->collection->update($id,$this->input->post());
+
+            //We upload the picture
+            if(isset($_FILES['picture'])){
+                $configUpload['upload_path'] = './uploads/collections';
+                $configUpload['allowed_types'] = 'gif|jpg|png';
+                $configUpload['overwrite'] = true;
+                $configUpload['max_size']	= '10000';
+
+                $_FILES['picture']['name'] = $id."_".$_FILES['picture']['name'];
+
+                $this->load->library('upload', $configUpload);
+                if($this->upload->do_upload('picture'))
+                {
+                    $configImage['image_library'] = 'gd2';
+                    $configImage['source_image']	= './uploads/collections/'.$_FILES['picture']['name'];
+                    $configImage['maintain_ratio'] = TRUE;
+                    $configImage['width']	 = 200;
+                    $configImage['height']	= 200;
+
+                    $this->load->library('image_lib', $configImage);
+                    if ( ! $this->image_lib->resize())
+                    {
+                        //$this->SetMsg($this->image_lib->display_errors(), '', TypeMessage::Error, false);
+                    }
+
+
+                    $this->collection->update($id, array('picture'=> $_FILES['picture']['name'] ));
+                }else{
+                    //On indique l'erreur, l'image reste la même
+                   // $this->SetMsg($this->upload->display_errors(), '', TypeMessage::Error, false);
+                }
+            }
             redirect('collections');
         }
     }
