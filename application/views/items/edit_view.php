@@ -24,19 +24,71 @@
     <!--invisible fields-->
     <input type="hidden" name="category_id" id="category_id" value="<?php echo $i->category_id; ?>">
     <!--Fields to complete-->
-    <label for="name">Nom</label><input name="name" id="name" value="<?php echo $i->name; ?>">
-    <label for="description">Description</label><input name="description" id="description" value="<?php echo $i->description; ?>">
-    <label for="category">Catégorie</label>
-    <select name="category" id="category" class="chzn-select" disabled>
-        <?php foreach($categories as $cat) : ?>
-            <option value="<?php echo $cat->id; ?>" <?php echo set_select('category_id', $cat->id, $cat->id==$i->category_id);?> ><?php echo $cat->name; ?></option>
-        <?php endforeach; ?>
-    </select>
-    <label for="collectedDate">Date de collection</label><input name="collectedDate" id="collectedDate" value="<?php echo ($i->collectedDate != "0000-00-00")?$i->collectedDate:""; ?>">
-    <label for="date">Date</label><input name="date" id="date" value="<?php echo ($i->date != "0000-00-00")?$i->date:""; ?>">
-    <label for="from">Reçu de</label><input name="from" id="from" value="<?php echo $i->from; ?>">
-    <label for="value">Valeur</label><input name="value" id="value" value="<?php echo $i->value; ?>">
-    <label for="picture">Image</label><input name="picture" id="picture" value="<?php echo $i->picture; ?>">
+    <div class="control-group">
+        <label for="name">Nom</label>
+        <div class="controls">
+            <input type="text" name="name" id="name" placeholder="" value="<?php echo set_value('name', $i->name); ?>" required>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="description">Description</label>
+        <div class="controls">
+            <input type="text" name="description" id="description" placeholder=""
+                   value="<?php echo set_value('description', $i->description); ?>" >
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="category">Catégorie</label>
+        <div class="controls">
+            <select name="category" id="category" class="chzn-select" disabled>
+                <?php foreach($categories as $cat) : ?>
+                    <option value="<?php echo $cat->id; ?>" <?php echo set_select('category_id', $cat->id, $cat->id==$i->category_id);?> ><?php echo $cat->name; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+
+    <?php $collectedDate = ($i->collectedDate != "0000-00-00")?$i->collectedDate:""; ?>
+    <div class="control-group">
+        <label for="collectedDate">Date de collection</label>
+        <div class="controls">
+            <input type="text" name="collectedDate" id="collectedDate" placeholder=""
+                   value="<?php echo set_value('collectedDate',$collectedDate); ?>" required>
+        </div>
+    </div>
+
+    <?php $date =  ($i->date != "0000-00-00")?$i->date:""; ?>
+    <div class="control-group">
+        <label for="date">Date</label>
+        <div class="controls">
+            <input type="text" name="date" id="date" placeholder="" value="<?php echo set_value('date',$date); ?>" >
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="from">Reçu de</label>
+        <div class="controls">
+            <input type="text" name="from" id="from" placeholder="" value="<?php echo set_value('from', $i->from); ?>" >
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="value">Valeur</label>
+        <div class="controls">
+            <input type="text" name="value" id="value" placeholder="" value="<?php echo set_value('value', $i->value); ?>" >
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="picture">Image</label>
+        <div class="controls">
+            <input type="file" name="picture" id="picture" placeholder="" value="<?php echo set_value('picture'); ?>" >
+            <?php if($i->picture != ''){ echo "<p>Image déjà existante : $i->picture</p>";} ?>
+        </div>
+    </div>
+
 </form>
 
 <script language="JavaScript" type="text/javascript">
