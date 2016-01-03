@@ -13,9 +13,9 @@
             <a href="<?php echo site_url('collections'); ?>">
                 <input class="btn btn-info" type="button" value="Annuler" name="Submit"/>
             </a>
+            <input class="btn btn-success" type="submit" value="Enregistrer"/>
         </div>
         <div class="bloc_c">
-            <input class="btn btn-success" type="submit" value="Enregistrer"/>
         </div>
         <div class="bloc_d">&nbsp;
         </div>
@@ -23,8 +23,31 @@
     <!--invisible fields-->
 
     <!--Fields to complete-->
-    <label for="name">Nom</label><input name="name" id="name" value="">
-    <label for="description">Description</label><input name="description" id="description" value="">
-    <label for="type">Type</label><input name="type" id="type" value="">
-    <label for="picture">Image</label><input type="file" name="picture" id="picture">
+    <?php echo validation_errors(); ?>
+
+    <div class="control-group">
+        <label for="name">Nom</label>
+        <div class="controls">
+            <input type="text" name="name" id="name" placeholder="" value="<?php echo set_value('name'); ?>" required>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="description">Description</label>
+        <div class="controls">
+            <input type="text" name="description" id="description" placeholder=""
+                   value="<?php echo set_value('description'); ?>" >
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="type">Type</label>
+        <div class="controls">
+            <input type="text" name="type" id="type" placeholder="" value="<?php echo set_value('type'); ?>" >
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="picture">Image</label>
+        <div class="controls">
+            <input type="file" name="picture" id="picture" placeholder="" value="<?php echo set_value('picture'); ?>" >
+        </div>
+    </div>
 </form>
