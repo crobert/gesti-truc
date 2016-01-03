@@ -23,15 +23,30 @@
         </div>
     </div>
 
-    <label for="name">Nom</label><?php echo $c->name; ?><br>
-    <label for="description">Description</label><?php echo $c->description; ?><br>
+<div class="control-group">
+    <label for="name">Nom</label>
+    <div class="controls">
+        <?php echo $c->name; ?>
+    </div>
+</div>
+<div class="control-group">
+    <label for="description">Description</label>
+    <div class="controls">
+        <?php echo $c->description; ?>
+    </div>
+</div>
 
-<h1>Items</h1>
 <?php foreach($items as $i){ ?>
-    <a class="vignetteLink" href='<?php echo site_url('items/detail/'.$i->id);?>'>
-        <div class="vignette">
-            <?php echo $i->name;  ?>
-        </div>
-    </a>
+    <div class="vignette">
+        <a class="vignetteLink" href='<?php echo site_url('items/detail/'.$i->id);?>'>
+            <?php if ($i->picture != '') : ?>
+            <div class="vignette"
+                 style="background: url('<?php echo base_url('uploads/items/' . $i->picture); ?>')">
+                <?php else : ?>
+                <div class="vignette">
+                    <?php endif; ?>
+                </div>
+                <span class="titreVignette"><?php echo $i->name; ?></span>
+        </a>
+    </div>
 <?php } ?>
-

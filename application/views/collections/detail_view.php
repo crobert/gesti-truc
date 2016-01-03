@@ -19,16 +19,39 @@
         </div>
     </div>
 
-    <label for="name">Nom</label><?php echo $c->name; ?><br>
-    <label for="description">Description</label><?php echo $c->description; ?><br>
-    <label for="type">Type</label><?php echo $c->type; ?><br>
+<div class="control-group">
+    <label for="name">Nom</label>
+    <div class="controls">
+        <?php echo $c->name; ?>
+    </div>
+</div>
+<div class="control-group">
+    <label for="description">Description</label>
+    <div class="controls">
+        <?php echo $c->description; ?>
+    </div>
+</div>
+<div class="control-group">
+    <label for="type">Type</label>
+    <div class="controls">
+        <?php echo $c->type; ?>
+    </div>
+</div>
 
-<h1>Catégories</h1>
-<?php foreach($categories as $c){ ?>
-    <a class="vignetteLink" href='<?php echo site_url('categories/detail/'.$c->id);?>'>
-        <div class="vignette">
-            <?php echo $c->name;  ?>
-        </div>
-    </a>
+
+
+<?php foreach ($categories as $c) { ?>
+    <div class="vignette">
+        <a class="vignetteLink" href='<?php echo site_url('categories/detail/'.$c->id);?>'>
+            <?php if ($c->picture != '') : ?>
+            <div class="vignette"
+                 style="background: url('<?php echo base_url('uploads/categories/' . $c->picture); ?>')">
+                <?php else : ?>
+                <div class="vignette">
+                    <?php endif; ?>
+                </div>
+                <span class="titreVignette"><?php echo $c->name; ?></span>
+        </a>
+    </div>
 <?php } ?>
 

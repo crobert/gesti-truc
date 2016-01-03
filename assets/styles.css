@@ -19,3 +19,7 @@ span.titreVignette{
     font-size: 15px;
     font-weight: bold;
 }
+
+div.control-group {
+    margin-bottom: 12px;
+}

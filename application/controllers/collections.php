@@ -146,7 +146,6 @@ class Collections extends CI_Controller {
 
         $categories = $this->category->getByCollection($id);
 
-
         $data['titre_page'] = 'Aperçu';
         $data['vue'] = 'collections/detail_view.php';
         $data['menu'] = 'collections';

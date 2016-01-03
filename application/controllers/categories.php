@@ -88,7 +88,6 @@ class Categories extends CI_Controller {
         $c= $this->category->getById($id);
         //todo test si $c existe
 
-
         $items = $this->item->getByCategory($id);
 
         $data['titre_page'] = 'Aperçu';
