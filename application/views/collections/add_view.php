@@ -10,10 +10,10 @@
 
     <div class="actions">
         <div class="bloc_g">
-            <a href="<?php echo site_url('collections'); ?>">
-                <input class="btn btn-info" type="button" value="Annuler" name="Submit"/>
-            </a>
             <input class="btn btn-success" type="submit" value="Enregistrer"/>
+            <a href="<?php echo site_url('collections'); ?>">
+                <input class="btn btn-warning" type="button" value="Annuler" name="Submit"/>
+            </a>
         </div>
         <div class="bloc_c">
         </div>

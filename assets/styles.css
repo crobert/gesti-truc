@@ -7,6 +7,10 @@
 a.vignetteLink,a.vignetteLink:hover,a.vignetteLink:visited {
     text-decoration:none;
 }
+
+a,a:hover,a:visited {
+    text-decoration:none!important;
+}
 div.vignette{
     text-align: center;
     display: inline-block;

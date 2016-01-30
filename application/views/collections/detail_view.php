@@ -11,8 +11,11 @@
             <a href='<?php echo site_url('collections/edit/'.$c->id);?>'>
                 <input class="btn btn-info" type="button" value="Modifier" name="Submit"/>
             </a>
+            <a href="<?php echo site_url('categories/add/'.$c->id); ?>">
+                <input class="btn btn-info" type="button" value="Ajouter une catégorie" name="Ajouter"/>
+            </a>
             <a href="<?php echo site_url('collections'); ?>">
-                <input class="btn btn-info" type="button" value="Retour" name="Submit"/>
+                <input class="btn btn-warning" type="button" value="Retour" name="Submit"/>
             </a>
         </div>
         <div class="bloc_d">&nbsp;

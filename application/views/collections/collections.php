@@ -4,7 +4,7 @@
  */
 ?>
 <a href="<?php echo site_url('collections/add'); ?>">
-    <input class="btn btn-info" type="button" value="Ajouter" name="Ajouter"/>
+    <input class="btn btn-info" type="button" value="Ajouter une collection" name="Ajouter"/>
 </a>
 <br/>
 <br/>

@@ -11,10 +11,16 @@
 
     <div class="actions">
         <div class="bloc_g">
-            <a href="<?php echo site_url('items'); ?>">
-                <input class="btn btn-info" type="button" value="Annuler" name="Submit"/>
-            </a>
             <input class="btn btn-success" type="submit" value="Enregistrer"/>
+            <?php //Get the source to know where to redirect
+            $url = 'categories';
+            if ($category != "") {
+                $url .= '/detail/' . $category;
+            }
+            ?>
+            <a href="<?php echo site_url($url); ?>">
+                <input class="btn btn-warning" type="button" value="Annuler" name="Submit"/>
+            </a>
         </div>
         <div class="bloc_c">
         </div>

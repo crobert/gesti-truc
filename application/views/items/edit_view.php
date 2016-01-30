@@ -9,18 +9,20 @@
 <form name="item_edit" id="item_edit" class="formular" enctype="multipart/form-data"
       action="<?php echo site_url('items/edit/'.$i->id); ?>" method="post" >
 
+
     <div class="actions">
         <div class="bloc_g">
-            <a href="<?php echo site_url('items'); ?>">
-                <input class="btn btn-info" type="button" value="Annuler" name="Submit"/>
+            <input class="btn btn-success" type="submit" value="Enregistrer"/>
+            <a href="<?php echo site_url('items/detail/'.$i->id); ?>">
+                <input class="btn btn-warning" type="button" value="Annuler" name="Submit"/>
             </a>
         </div>
         <div class="bloc_c">
-            <input class="btn btn-success" type="submit" value="Enregistrer"/>
         </div>
         <div class="bloc_d">&nbsp;
         </div>
     </div>
+
     <!--invisible fields-->
     <input type="hidden" name="category_id" id="category_id" value="<?php echo $i->category_id; ?>">
     <!--Fields to complete-->
