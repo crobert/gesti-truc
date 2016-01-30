@@ -155,6 +155,23 @@ class Collections extends CI_Controller {
 
     }
 
+    function delete($id)
+    {
+        $this->load->model('collection');
+        $this->load->model('category');
+        $this->load->model('item');
+
+        $categories = $this->category->getByCollection($id);
+
+        foreach($categories as $cat)
+        {
+            $this->item->deleteByCategory($cat->id);
+            $this->category->delete($cat->id);
+        }
+        $this->collection->delete($id);
+
+        redirect('collections/');
+    }
 }
 
 /* End of file users.php */

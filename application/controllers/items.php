@@ -93,7 +93,14 @@ class Items extends CI_Controller {
         $data['menu'] = 'items';
         $data['i'] = $i;
         $this->load->view('template', $data);
+    }
 
+    function delete($id)
+    {
+        $this->load->model('item');
+        $i= $this->item->getById($id);
+        $this->item->delete($id);
+        redirect('categories/detail/'.$i->category_id);
     }
 
 }

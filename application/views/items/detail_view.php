@@ -10,11 +10,14 @@
         <a href='<?php echo site_url('items/edit/' . $i->id); ?>'>
             <input class="btn btn-info" type="button" value="Modifier" name="Submit"/>
         </a>
+        <a href="<?php echo site_url('items/delete/' . $i->id); ?>">
+            <input class="btn btn-danger" type="button" value="Supprimer" name="Supprimer"/>
+        </a>
         <a href="<?php echo site_url('categories/detail/' . $i->category_id); ?>">
-            <input class="btn btn-warning" type="button" value="Retour" name="Submit"/>
+            <input class="btn btn-warning" type="button" value="Retour" name="Retour"/>
         </a>
         <!--
-            <a href="<?php echo site_url('items/add/' . $i->id); ?>">
+            <a href="<?php //echo site_url('items/add/' . $i->id); ?>">
                 <input class="btn btn-info" type="button" value="Ajouter un item" name="Submit"/>
             </a>
             -->

@@ -13,11 +13,14 @@
             </a>
 
             <a href="<?php echo site_url('items/add/'.$c->id); ?>">
-                <input class="btn btn-info" type="button" value="Ajouter un item" name="Submit"/>
+                <input class="btn btn-info" type="button" value="Ajouter un item" name="Ajouter"/>
             </a>
 
+            <a href="<?php echo site_url('categories/delete/' . $c->id); ?>">
+                <input class="btn btn-danger" type="button" value="Supprimer" name="Supprimer"/>
+            </a>
             <a href="<?php echo site_url('collections/detail/'.$c->collection_id); ?>">
-                <input class="btn btn-warning" type="button" value="Retour" name="Submit"/>
+                <input class="btn btn-warning" type="button" value="Retour" name="Retour"/>
             </a>
         </div>
         <div class="bloc_d">&nbsp;

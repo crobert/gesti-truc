@@ -9,10 +9,13 @@
     <div class="actions">
         <div class="bloc_g">
             <a href='<?php echo site_url('collections/edit/'.$c->id);?>'>
-                <input class="btn btn-info" type="button" value="Modifier" name="Submit"/>
+                <input class="btn btn-info" type="button" value="Modifier" name="Modifier"/>
             </a>
             <a href="<?php echo site_url('categories/add/'.$c->id); ?>">
                 <input class="btn btn-info" type="button" value="Ajouter une catégorie" name="Ajouter"/>
+            </a>
+            <a href="<?php echo site_url('collections/delete/' . $c->id); ?>">
+                <input class="btn btn-danger" type="button" value="Supprimer" name="Supprimer"/>
             </a>
             <a href="<?php echo site_url('collections'); ?>">
                 <input class="btn btn-warning" type="button" value="Retour" name="Submit"/>

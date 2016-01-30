@@ -46,6 +46,13 @@ class Item extends CI_Model
         $this->db->delete('items');
     }
 
+    function deleteByCategory($id)
+    {
+        $this->db->where('category_id', $id);
+        $this->db->delete('items');
+    }
+
+
     function update($id, $data)
     {
         if ($data['collectedDate'] != '') {
