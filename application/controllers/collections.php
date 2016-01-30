@@ -73,7 +73,7 @@ class Collections extends CI_Controller {
                     // $this->SetMsg($this->upload->display_errors(), '', TypeMessage::Error, false);
                 }
             }
-            redirect('collections');
+            redirect('collections/detail/'.$id);
         }
     }
 
@@ -133,7 +133,7 @@ class Collections extends CI_Controller {
                    // $this->SetMsg($this->upload->display_errors(), '', TypeMessage::Error, false);
                 }
             }
-            redirect('collections');
+            redirect('collections/detail/'.$id);
         }
     }
 

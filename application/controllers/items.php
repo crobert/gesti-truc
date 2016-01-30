@@ -48,7 +48,7 @@ class Items extends CI_Controller {
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
             $this->load->model('item');
             $id= $this->item->add($this->input->post());
-            redirect('items');
+            redirect('items/detail/'.$id);
         }
     }
 
@@ -77,8 +77,8 @@ class Items extends CI_Controller {
 
         } else {
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
-            $id= $this->item->update($id,$this->input->post());
-            redirect('items');
+            $this->item->update($id,$this->input->post());
+            redirect('items/detail/'.$id);
         }
     }
 

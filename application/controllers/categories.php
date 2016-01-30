@@ -48,7 +48,7 @@ class Categories extends CI_Controller {
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
             $this->load->model('category');
             $id= $this->category->add($this->input->post());
-            redirect('categories');
+            redirect('categories/detail/'.$id);
         }
     }
 
@@ -77,8 +77,8 @@ class Categories extends CI_Controller {
 
         } else {
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
-            $id= $this->category->update($id,$this->input->post());
-            redirect('categories');
+            $this->category->update($id,$this->input->post());
+            redirect('categories/detail/'.$id);
         }
     }
 
