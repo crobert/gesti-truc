@@ -24,8 +24,8 @@ class Collections extends CI_Controller {
         //Règles pour tous les champs
         $this->load->library('form_validation');
         $this->form_validation->set_rules('name', 'Nom', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
+        //$this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
+        //$this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
 
@@ -85,8 +85,8 @@ class Collections extends CI_Controller {
         //Règles pour tous les champs
         $this->load->library('form_validation');
         $this->form_validation->set_rules('name', 'Nom', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
+        //$this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
+        //$this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
 

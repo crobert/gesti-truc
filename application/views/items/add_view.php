@@ -48,7 +48,7 @@
     <div class="control-group">
         <label for="category_id">Catégorie</label>
         <div class="controls">
-            <select name="category_id" id="category_id" class="chzn-select w150">
+            <select name="category_id" id="category_id" class="chzn-select w150" required>
                 <?php foreach($categories as $c) : ?>
                     <option value="<?php echo $c->id; ?>"
                         <?php echo set_select('category_id', $c->id, $c->id==$category);?> ><?php echo $c->name; ?></option>
@@ -60,7 +60,7 @@
     <div class="control-group">
         <label for="collectedDate">Date de collection</label>
         <div class="controls">
-            <input type="text" name="collectedDate" id="collectedDate" placeholder="" value="<?php echo set_value('collectedDate'); ?>" required>
+            <input type="text" name="collectedDate" id="collectedDate" placeholder="" value="<?php echo set_value('collectedDate'); ?>" >
         </div>
     </div>
 

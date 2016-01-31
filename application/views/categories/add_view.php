@@ -7,7 +7,7 @@
 <!-- ----------------------------------------------- New category form ----------------------------------------------- -->
 
 <form name="category_add" id="category_add" class="formular" enctype="multipart/form-data"
-      action="<?php echo site_url('categories/add/'); ?>" method="post">
+      action="<?php echo site_url('categories/add/'.$collection); ?>" method="post">
 
     <div class="actions">
         <div class="bloc_g">

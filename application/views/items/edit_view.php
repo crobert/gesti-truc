@@ -57,7 +57,7 @@
         <label for="collectedDate">Date de collection</label>
         <div class="controls">
             <input type="text" name="collectedDate" id="collectedDate" placeholder=""
-                   value="<?php echo set_value('collectedDate',$collectedDate); ?>" required>
+                   value="<?php echo set_value('collectedDate',$collectedDate); ?>">
         </div>
     </div>
 
