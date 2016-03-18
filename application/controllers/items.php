@@ -1,6 +1,6 @@
 <?php
 
-class Items extends CI_Controller {
+class Items extends MY_Controller {
 
     function Items()
     {
@@ -86,6 +86,7 @@ class Items extends CI_Controller {
         //$this->load->model('item');
         $this->load->model('item');
         $i= $this->item->getById($id);
+        $this->addBreadcrumbs("items/detail/".$id, $i->name);
         //todo test si $i existe
 
         $data['titre_page'] = 'Aperçu';

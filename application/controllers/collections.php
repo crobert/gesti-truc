@@ -1,6 +1,6 @@
 <?php
 
-class Collections extends CI_Controller {
+class Collections extends MY_Controller {
 
     function Collections()
     {
@@ -9,6 +9,9 @@ class Collections extends CI_Controller {
 
     function index()
     {
+
+        $this->clearBreadcrumbs();
+
         $this->load->model('collection');
         $collections = $this->collection->getAll();
 
@@ -141,11 +144,10 @@ class Collections extends CI_Controller {
         $this->load->model('collection');
         $this->load->model('category');
         $c= $this->collection->getById($id);
+        $this->addBreadcrumbs("collections/detail/".$id, $c->name);
         //todo test si $c existe
 
-
         $categories = $this->category->getByCollection($id);
-
         $data['titre_page'] = 'Aperçu';
         $data['vue'] = 'collections/detail_view.php';
         $data['menu'] = 'collections';

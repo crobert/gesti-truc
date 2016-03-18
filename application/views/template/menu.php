@@ -17,9 +17,13 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li <?php echo ($menu=='users')?"class='active'":"";?>><a href="<?php echo site_url('users'); ?>">Users</a></li>
-                <li <?php echo ($menu=='collections')?"class='active'":"";?>><a href="<?php echo site_url('collections'); ?>">Collections</a></li>
-                <li <?php echo ($menu=='categories')?"class='active'":"";?>><a href="<?php echo site_url('categories'); ?>">Categories</a></li>
-            </ul>
+                <?php foreach($this->session->userdata('breadcrumbs') as $bc):?>
+                <li><a href="<?php echo site_url($bc['link']); ?>"><?php echo $bc['value']; ?></a></li>
+                <?php endforeach; ?>
+                 </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+<!--<li <?php //echo ($menu=='collections')?"class='active'":"";?>><a href="<?php //echo site_url('collections'); ?>">Collections</a></li>
+<li <?php //echo ($menu=='categories')?"class='active'":"";?>><a href="<?php //echo site_url('categories'); ?>">Categories</a></li>
+     -->

@@ -1,6 +1,6 @@
 <?php
 
-class Categories extends CI_Controller
+class Categories extends MY_Controller
 {
 
     function Categories()
@@ -92,6 +92,7 @@ class Categories extends CI_Controller
         $this->load->model('item');
         $this->load->model('category');
         $c = $this->category->getById($id);
+        $this->addBreadcrumbs("categories/detail/".$id, $c->name);
         //todo test si $c existe
 
         $items = $this->item->getByCategory($id);
