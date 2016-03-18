@@ -10,12 +10,12 @@
 
     <div class="actions">
         <div class="bloc_g">
+            <input class="btn btn-success" type="submit" value="Enregistrer"/>
             <a href="<?php echo site_url('users'); ?>">
-                <input class="btn btn-info" type="button" value="Annuler" name="Submit"/>
+                <input class="btn btn-warning" type="button" value="Annuler" name="Submit"/>
             </a>
         </div>
-        <div class="bloc_c">
-            <input class="btn btn-success" type="submit" value="Enregistrer"/>
+        <div class="bloc_c">&nbsp;
         </div>
         <div class="bloc_d">&nbsp;
         </div>
@@ -23,7 +23,24 @@
     <!--invisible fields-->
 
     <!--Fields to complete-->
-    <label for="name">Nom</label><input name="name" id="name" value="<?php echo $u->name; ?>">
-    <label for="username">Username</label><input name="username" id="username" value="<?php echo $u->username; ?>">
-    <label for="email">Email</label><input name="email" id="email" value="<?php echo $u->email; ?>">
+    <div class="control-group">
+        <label for="name">Nom</label>
+        <div class="controls">
+            <input type="text" name="name" id="name" placeholder="" value="<?php echo set_value('name',$u->name); ?>" required>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="username">Username</label>
+        <div class="controls">
+            <input type="text" name="username" id="username" placeholder="" value="<?php echo set_value('username',$u->username ); ?>" required>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="email">Email</label>
+        <div class="controls">
+            <input type="text" name="email" id="email" placeholder="" value="<?php echo set_value('email',$u->email); ?>" required>
+        </div>
+    </div>
 </form>
