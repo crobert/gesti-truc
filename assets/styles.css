@@ -31,3 +31,6 @@ div.control-group {
 .w150{
     min-width: 150px;
 }
+h1.titrePage {
+    margin-top: 0;
+}

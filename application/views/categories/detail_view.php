@@ -5,34 +5,29 @@
  */
 ?>
 <!-- ----------------------------------------------- Details of a category ----------------------------------------------- -->
+<h1 class="titrePage"><?php echo $c->name; ?></h1>
 
-    <div class="actions">
-        <div class="bloc_g">
-            <a href='<?php echo site_url('categories/edit/'.$c->id);?>'>
-                <input class="btn btn-info" type="button" value="Modifier" name="Submit"/>
-            </a>
+<div class="actions">
+    <div class="bloc_g">
+        <a href='<?php echo site_url('categories/edit/'.$c->id);?>'>
+            <input class="btn btn-info" type="button" value="Modifier" name="Submit"/>
+        </a>
 
-            <a href="<?php echo site_url('items/add/'.$c->id); ?>">
-                <input class="btn btn-info" type="button" value="Ajouter un item" name="Ajouter"/>
-            </a>
+        <a href="<?php echo site_url('items/add/'.$c->id); ?>">
+            <input class="btn btn-info" type="button" value="Ajouter un item" name="Ajouter"/>
+        </a>
 
-            <a href="<?php echo site_url('categories/delete/' . $c->id); ?>">
-                <input class="btn btn-danger" type="button" value="Supprimer" name="Supprimer"/>
-            </a>
-            <a href="<?php echo site_url('collections/detail/'.$c->collection_id); ?>">
-                <input class="btn btn-warning" type="button" value="Retour" name="Retour"/>
-            </a>
-        </div>
-        <div class="bloc_d">&nbsp;
-        </div>
+        <a href="<?php echo site_url('categories/delete/' . $c->id); ?>">
+            <input class="btn btn-danger" type="button" value="Supprimer" name="Supprimer"/>
+        </a>
+        <a href="<?php echo site_url('collections/detail/'.$c->collection_id); ?>">
+            <input class="btn btn-warning" type="button" value="Retour" name="Retour"/>
+        </a>
     </div>
-
-<div class="control-group">
-    <label for="name">Nom</label>
-    <div class="controls">
-        <?php echo $c->name; ?>
+    <div class="bloc_d">&nbsp;
     </div>
 </div>
+
 <div class="control-group">
     <label for="description">Description</label>
     <div class="controls">
