@@ -51,6 +51,14 @@
     </div>
 
     <div class="control-group">
+        <label for="picture">Image</label>
+        <div class="controls">
+            <input type="file" name="picture" id="picture" placeholder="" value="<?php echo set_value('picture'); ?>" >
+            <?php if($c->picture != ''){ echo "<p>Image déjà existante : $c->picture</p>";} ?>
+        </div>
+    </div>
+
+    <div class="control-group">
         <label for="parent_id">Parent</label>
         <div class="controls">
             <input type="text" name="parent_id" id="parent_id" placeholder=""

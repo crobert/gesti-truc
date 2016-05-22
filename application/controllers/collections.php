@@ -31,16 +31,11 @@ class Collections extends MY_Controller {
         //$this->form_validation->set_rules('type', 'Type', 'trim|required|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
-
-
             $data['titre_page'] = 'Aperçu';
             $data['vue'] = 'collections/add_view.php';
             $data['menu'] = 'collections';
             $this->load->helper('form');
             $this->load->view('template', $data);
-
-
-
         } else {
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
             $this->load->model('collection');

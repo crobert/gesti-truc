@@ -45,7 +45,7 @@
         <a class="vignetteLink" href='<?php echo site_url('items/detail/'.$i->id);?>'>
             <?php if ($i->picture != '') : ?>
             <div class="vignette"
-                 style="background: url('<?php echo base_url('uploads/items/' . $i->picture); ?>')">
+                 style="background: black url('<?php echo base_url('uploads/items/' . $i->picture); ?>') no-repeat center;">
                 <?php else : ?>
                 <div class="vignette">
                     <?php endif; ?>

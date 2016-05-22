@@ -61,6 +61,13 @@
     </div>
 
     <div class="control-group">
+        <label for="picture">Image</label>
+        <div class="controls">
+            <input type="file" name="picture" id="picture" placeholder="" value="<?php echo set_value('picture'); ?>" >
+        </div>
+    </div>
+
+    <div class="control-group">
         <label for="parent_id">Parent</label>
 
         <div class="controls">

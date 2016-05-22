@@ -51,6 +51,36 @@ class Categories extends MY_Controller
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
             $this->load->model('category');
             $id = $this->category->add($this->input->post());
+            if(isset($_FILES['picture'])){
+                $configUpload['upload_path'] = './uploads/categories';
+                $configUpload['allowed_types'] = 'gif|jpg|png';
+                $configUpload['overwrite'] = true;
+                $configUpload['max_size']	= '10000';
+
+                $_FILES['picture']['name'] = $id."_".$_FILES['picture']['name'];
+
+                $this->load->library('upload', $configUpload);
+                if($this->upload->do_upload('picture'))
+                {
+                    $configImage['image_library'] = 'gd2';
+                    $configImage['source_image']	= './uploads/categories/'.$_FILES['picture']['name'];
+                    $configImage['maintain_ratio'] = TRUE;
+                    $configImage['width']	 = 200;
+                    $configImage['height']	= 200;
+
+                    $this->load->library('image_lib', $configImage);
+                    if ( ! $this->image_lib->resize())
+                    {
+                        //$this->SetMsg($this->image_lib->display_errors(), '', TypeMessage::Error, false);
+                    }
+
+                    $this->category->update($id, array('picture'=> $_FILES['picture']['name'] ));
+                }else{
+                    //On indique l'erreur, l'image reste la même
+                    $this->SetMsg($this->upload->display_errors(), '', TypeMessage::Error, false);
+                }
+            }
+
             redirect('categories/detail/' . $id);
         }
     }
@@ -82,7 +112,39 @@ class Categories extends MY_Controller
 
         } else {
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
+            $this->load->model('category');
             $this->category->update($id, $this->input->post());
+            //We upload the picture
+            if(isset($_FILES['picture'])){
+                $configUpload['upload_path'] = './uploads/categories';
+                $configUpload['allowed_types'] = 'gif|jpg|png';
+                $configUpload['overwrite'] = true;
+                $configUpload['max_size']	= '10000';
+
+                $_FILES['picture']['name'] = $id."_".$_FILES['picture']['name'];
+
+                $this->load->library('upload', $configUpload);
+                if($this->upload->do_upload('picture'))
+                {
+                    $configImage['image_library'] = 'gd2';
+                    $configImage['source_image']	= './uploads/categories/'.$_FILES['picture']['name'];
+                    $configImage['maintain_ratio'] = TRUE;
+                    $configImage['width']	 = 200;
+                    $configImage['height']	= 200;
+
+                    $this->load->library('image_lib', $configImage);
+                    if ( ! $this->image_lib->resize())
+                    {
+                        //$this->SetMsg($this->image_lib->display_errors(), '', TypeMessage::Error, false);
+                    }
+
+
+                    $this->category->update($id, array('picture'=> $_FILES['picture']['name'] ));
+                }else{
+                    //On indique l'erreur, l'image reste la même
+                    // $this->SetMsg($this->upload->display_errors(), '', TypeMessage::Error, false);
+                }
+            }
             redirect('categories/detail/' . $id);
         }
     }
