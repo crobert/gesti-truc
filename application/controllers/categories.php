@@ -77,7 +77,7 @@ class Categories extends MY_Controller
                     $this->category->update($id, array('picture'=> $_FILES['picture']['name'] ));
                 }else{
                     //On indique l'erreur, l'image reste la même
-                    $this->SetMsg($this->upload->display_errors(), '', TypeMessage::Error, false);
+                    //$this->SetMsg($this->upload->display_errors(), '', TypeMessage::Error, false);
                 }
             }
 
