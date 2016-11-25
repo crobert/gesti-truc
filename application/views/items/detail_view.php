@@ -4,25 +4,15 @@
  */
 ?>
 <!-- ----------------------------------------------- Details of an item ----------------------------------------------- -->
+<h2><?php echo $i->name; ?>
 
-<h1 class="titrePage"><?php echo $i->name; ?></h1>
+    <a title="modifier" href='<?php echo site_url('items/edit/'.$i->id);?>'>!</a>&nbsp;
+    <a title="supprimer" href='<?php echo site_url('items/delete/'.$i->id);?>'>X</a>
+</h2>
 
-<div class="actions">
-    <div class="bloc_g">
-        <a href='<?php echo site_url('items/edit/' . $i->id); ?>'>
-            <input class="btn btn-info" type="button" value="Modifier" name="Submit"/>
-        </a>
-        <a href="<?php echo site_url('items/delete/' . $i->id); ?>">
-            <input class="btn btn-danger" type="button" value="Supprimer" name="Supprimer"/>
-        </a>
-        <a href="<?php echo site_url('categories/detail/' . $i->category_id); ?>">
-            <input class="btn btn-warning" type="button" value="Retour" name="Retour"/>
-        </a>
-    </div>
-    <div class="bloc_d">&nbsp;
-    </div>
-</div>
-
+<?php if ($i->picture != '') : ?>
+    <img src="<?php echo base_url('uploads/items/' . $i->picture); ?>">
+<?php endif; ?>
 
 <?php if ($i->description != "") : ?>
 <div class="control-group">

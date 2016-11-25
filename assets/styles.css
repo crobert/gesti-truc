@@ -18,6 +18,21 @@ div.vignette{
     height: 200px;
     border: 1px solid #000000;
 }
+.listeTitle {
+    cursor: pointer;
+}
+div.listeBloc {
+    display: none;
+}
+div.listeBloc div {
+    display: inline-block;
+    vertical-align: top;
+}
+div.listeBloc div.detail {
+    padding-left: 5px;
+    padding-top: 10px;
+}
+
 span.titreVignette{
     color: #000000;
     font-size: 15px;

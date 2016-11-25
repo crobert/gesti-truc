@@ -3,23 +3,57 @@
  * @var $collections array
  */
 ?>
-<a href="<?php echo site_url('collections/add'); ?>">
-    <input class="btn btn-info" type="button" value="Ajouter une collection" name="Ajouter"/>
-</a>
-<br/>
-<br/>
 
-<?php foreach ($collections as $c) { ?>
-    <div class="vignette">
-        <a class="vignetteLink" href='<?php echo site_url('collections/detail/' . $c->id); ?>'>
-            <?php if ($c->picture != '') : ?>
-            <div class="vignette"
-                 style="background: black url('<?php echo base_url('uploads/collections/' . $c->picture); ?>') no-repeat center;">
-            <?php else : ?>
-                <div class="vignette">
-            <?php endif; ?>
+<h2>Mes collections <a title="nouvelle collection" href="<?php echo site_url('collections/add'); ?>">+</a></h2>
+<table id="collectionTable">
+    <?php foreach ($collections as $c) { ?>
+        <tr>
+            <td>
+                <div>
+                    <span class="listeTitle" id="title<?php echo $c->id; ?>">
+                        <?php echo $c->name; ?>
+                    </span>
+                    <span>
+                        <a title="modifier" href='<?php echo site_url('collections/edit/'.$c->id);?>'>!</a>&nbsp;
+                        <a title="supprimer" href='<?php echo site_url('collections/delete/'.$c->id);?>'>X</a>
+                    </span>
                 </div>
-            <span class="titreVignette"><?php echo $c->name; ?></span>
-        </a>
-    </div>
-<?php } ?>
+                <div class="listeBloc" id="bloc<?php echo $c->id; ?>">
+                    <a class="vignetteLink" href='<?php echo site_url('collections/detail/' . $c->id); ?>'>
+                        <?php if ($c->picture != '') : ?>
+                            <div class="vignette"
+                                 style="background: black url('<?php echo base_url('uploads/collections/' . $c->picture); ?>') no-repeat center;">
+                            </div>
+                        <?php else : ?>
+                            <div class="vignette">
+                            </div>
+                        <?php endif; ?>
+                    </a>
+
+                    <div class="detail">
+                        <label for="type">Type</label>
+                        <p><?php echo $c->type; ?></p>
+
+                        <label for="description">Description</label>
+                        <p><?php echo $c->description; ?></p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    <?php } ?>
+</table>
+
+
+<script language="JavaScript" type="text/javascript">
+    $(document).ready(function () {
+        $('.listeTitle').on("click", function(){
+            var titleId = this.id;
+            var blocId = titleId.replace('title', 'bloc');
+            var allCollections = $('.listeBloc');
+            var blocElement = $('#'+blocId);
+            allCollections.hide();
+            blocElement.show();
+            //maybe hide the element if already visible
+        });
+    });
+</script>
