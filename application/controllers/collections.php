@@ -1,6 +1,6 @@
 <?php
 
-class Collections extends MY_Controller {
+class Collections extends MY_Auth {
 
     function Collections()
     {

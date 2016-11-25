@@ -1,6 +1,6 @@
 <?php
 
-class Items extends MY_Controller {
+class Items extends MY_Auth {
 
     function Items()
     {

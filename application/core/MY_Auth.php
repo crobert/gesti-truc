@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class MY_Auth extends CI_Controller
+class MY_Auth extends MY_Controller
 {
     /**
      * Check if a user is authorize to access the application

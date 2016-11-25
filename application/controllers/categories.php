@@ -1,6 +1,6 @@
 <?php
 
-class Categories extends MY_Controller
+class Categories extends MY_Auth
 {
 
     function Categories()

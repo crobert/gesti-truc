@@ -3,6 +3,12 @@
  * @var $menu string
  */
 ?>
+<?php
+    $breadcrumbs = $this->session->userdata('breadcrumbs');
+    if($breadcrumbs == null){
+        $breadcrumbs = array();
+    }
+?>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -16,8 +22,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li <?php echo ($menu=='users')?"class='active'":"";?>><a href="<?php echo site_url('users'); ?>">Users</a></li>
-                <?php foreach($this->session->userdata('breadcrumbs') as $bc):?>
+                <li <?php echo ($menu=='users')?"class='active'":"";?>><a href="<?php echo site_url('users'); ?>">Utilisateurs</a></li>
+                <?php foreach($breadcrumbs as $bc):?>
                 <li><a href="<?php echo site_url($bc['link']); ?>"><?php echo $bc['value']; ?></a></li>
                 <?php endforeach; ?>
                  </ul>
