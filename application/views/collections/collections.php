@@ -4,7 +4,7 @@
  */
 ?>
 
-<h2>Mes collections <a title="nouvelle collection" href="<?php echo site_url('collections/add'); ?>">+</a></h2>
+<h2 class="titrePage">Mes collections <a title="nouvelle collection" href="<?php echo site_url('collections/add'); ?>"><i class="glyphicon glyphicon-plus"></i></a></h2>
 <table id="collectionTable">
     <?php foreach ($collections as $c) { ?>
         <tr>
@@ -14,8 +14,9 @@
                         <?php echo $c->name; ?>
                     </span>
                     <span>
-                        <a title="modifier" href='<?php echo site_url('collections/edit/'.$c->id);?>'>!</a>&nbsp;
-                        <a title="supprimer" href='<?php echo site_url('collections/delete/'.$c->id);?>'>X</a>
+                        <a title="voir" href='<?php echo site_url('collections/detail/'.$c->id);?>'><i class="glyphicon glyphicon-eye-open"></i></a>&nbsp;
+                        <a title="modifier" href='<?php echo site_url('collections/edit/'.$c->id);?>'><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;
+                        <a title="supprimer" href='<?php echo site_url('collections/delete/'.$c->id);?>'><i class="glyphicon glyphicon-remove"></i></a>
                     </span>
                 </div>
                 <div class="listeBloc" id="bloc<?php echo $c->id; ?>">

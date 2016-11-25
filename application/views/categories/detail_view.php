@@ -6,7 +6,7 @@
 ?>
 <!-- ----------------------------------------------- Details of a category ----------------------------------------------- -->
 
-<h2>&Eacute;léments de <?php echo $c->name; ?> <a title="nouvel élément" href="<?php echo site_url('categories/add/'.$c->id); ?>">+</a></h2>
+<h2 class="titrePage">&Eacute;léments de <?php echo $c->name; ?> <a title="nouvel élément" href="<?php echo site_url('categories/add/'.$c->id); ?>"><i class="glyphicon glyphicon-plus"></i></a></h2>
 
 <?php foreach($items as $i){ ?>
     <div class="vignette">

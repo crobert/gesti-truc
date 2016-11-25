@@ -4,10 +4,9 @@
  */
 ?>
 <!-- ----------------------------------------------- Details of an item ----------------------------------------------- -->
-<h2><?php echo $i->name; ?>
-
-    <a title="modifier" href='<?php echo site_url('items/edit/'.$i->id);?>'>!</a>&nbsp;
-    <a title="supprimer" href='<?php echo site_url('items/delete/'.$i->id);?>'>X</a>
+<h2 class="titrePage"><?php echo $i->name; ?>
+    <a title="modifier" href='<?php echo site_url('items/edit/'.$i->id);?>'><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;
+    <a title="supprimer" href='<?php echo site_url('items/delete/'.$i->id);?>'><i class="glyphicon glyphicon-remove"></i></a>
 </h2>
 
 <?php if ($i->picture != '') : ?>

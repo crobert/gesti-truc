@@ -46,6 +46,13 @@ div.control-group {
 .w150{
     min-width: 150px;
 }
-h1.titrePage {
+.titrePage {
     margin-top: 0;
+}
+h2 i {
+    font-size: 20px;
+}
+
+span.listeTitle {
+    font-size: 18px;
 }

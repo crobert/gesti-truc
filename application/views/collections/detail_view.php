@@ -6,8 +6,8 @@
 ?>
 <!-- ----------------------------------------------- Details of a  collection ----------------------------------------------- -->
 
-<h2>Catégories de <?php echo $c->name; ?> <a title="nouvelle catégorie" href="<?php echo site_url('categories/add/'.$c->id); ?>">+</a></h2>
-<table id="collectionTable">
+<h2 class="titrePage"   >Catégories de <?php echo $c->name; ?> <a title="nouvelle catégorie" href="<?php echo site_url('categories/add/'.$c->id); ?>"><i class="glyphicon glyphicon-plus"></i></a></h2>
+<table id="categorieTable">
     <?php foreach ($categories as $c) { ?>
         <tr>
             <td>
@@ -16,8 +16,9 @@
                         <?php echo $c->name; ?>
                     </span>
                     <span>
-                        <a title="modifier" href='<?php echo site_url('categories/edit/'.$c->id);?>'>!</a>&nbsp;
-                        <a title="supprimer" href='<?php echo site_url('categories/delete/'.$c->id);?>'>X</a>
+                        <a title="voir" href='<?php echo site_url('categories/detail/'.$c->id);?>'><i class="glyphicon glyphicon-eye-open"></i></a>&nbsp;
+                        <a title="modifier" href='<?php echo site_url('categories/edit/'.$c->id);?>'><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;
+                        <a title="supprimer" href='<?php echo site_url('categories/delete/'.$c->id);?>'><i class="glyphicon glyphicon-remove"></i></a>
                     </span>
                 </div>
 
