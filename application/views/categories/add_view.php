@@ -48,15 +48,16 @@
     </div>
 
     <div class="control-group">
-        <label for="collection_id">Collection</label>
-
+        <label for="collection">Collection</label>
         <div class="controls">
-            <select name="collection_id" id="collection_id" class="chzn-select w150">
-                <?php foreach ($collections as $c) : ?>
-                    <option
-                        value="<?php echo $c->id; ?>" <?php echo set_select('collection_id', $c->id, $c->id == $collection); ?> ><?php echo $c->name; ?></option>
-                <?php endforeach; ?>
-            </select>
+            <input type="hidden" name="collection_id" id="collection_id" placeholder=""
+                   value="<?php echo $collection; ?>">
+            <?php foreach ($collections as $c) : ?>
+                <?php if( $c->id == $collection) :?>
+                    <?php echo $c->name ?>
+
+                <?php endif; ?>
+            <?php endforeach; ?>
         </div>
     </div>
 

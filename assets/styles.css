@@ -56,3 +56,6 @@ h2 i {
 span.listeTitle {
     font-size: 18px;
 }
+input:read-only{
+    border:none;
+}

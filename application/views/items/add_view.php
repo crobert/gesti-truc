@@ -1,7 +1,8 @@
 <?php
 /**
  * @var $categories array
- * @var $category int
+ * @var $category object
+ * @var $collection object
  */
 ?>
 <!-- ----------------------------------------------- New item form ----------------------------------------------- -->
@@ -14,8 +15,8 @@
             <input class="btn btn-success" type="submit" value="Enregistrer"/>
             <?php //Get the source to know where to redirect
             $url = 'categories';
-            if ($category != "") {
-                $url .= '/detail/' . $category;
+            if ($category->id != "") {
+                $url .= '/detail/' . $category->id;
             }
             ?>
             <a href="<?php echo site_url($url); ?>">
@@ -46,12 +47,19 @@
     </div>
 
     <div class="control-group">
+        <label for="collection">Collection</label>
+        <div class="controls">
+            <?php echo $collection->name ?>
+        </div>
+    </div>
+
+    <div class="control-group">
         <label for="category_id">Catégorie</label>
         <div class="controls">
             <select name="category_id" id="category_id" class="chzn-select w150" required>
                 <?php foreach($categories as $c) : ?>
                     <option value="<?php echo $c->id; ?>"
-                        <?php echo set_select('category_id', $c->id, $c->id==$category);?> ><?php echo $c->name; ?></option>
+                        <?php echo set_select('category_id', $c->id, $c->id==$category->id);?> ><?php echo $c->name; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

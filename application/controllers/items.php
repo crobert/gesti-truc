@@ -33,13 +33,18 @@ class Items extends MY_Auth {
         if ($this->form_validation->run() == FALSE) {
 
             $this->load->model('category');
-            $categories = $this->category->getList();
+            $this->load->model('collection');
+            $myCategorie = $this->category->getById($category);
+            $collection = $myCategorie->collection_id;
+            $myCollection = $this->collection->getById($collection);
+            $categories = $this->category->getByCollection($collection);
 
             $data['titre_page'] = 'Aperçu';
             $data['vue'] = 'items/add_view.php';
             $data['menu'] = 'items';
             $data['categories'] = $categories;
-            $data['category'] = $category;
+            $data['category'] = $myCategorie;
+            $data['collection'] = $myCollection;
             $this->load->helper('form');
             $this->load->view('template', $data);
 
