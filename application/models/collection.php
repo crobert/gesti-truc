@@ -7,6 +7,7 @@ class Collection extends CI_Model {
         $this->db->from('collections');
         return $this->db->get()->result();
     }
+
     function getById($id)
     {
         $this->db->select('*');

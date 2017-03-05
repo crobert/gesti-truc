@@ -1,6 +1,7 @@
 <?php
 /**
  * @var $categories array
+ * @var $collection object
  * @var $i object
  */
 ?>
@@ -40,6 +41,15 @@
                    value="<?php echo set_value('description', $i->description); ?>" >
         </div>
     </div>
+
+
+    <div class="control-group">
+        <label for="collection">Collection</label>
+        <div class="controls">
+            <?php echo $collection->name ?>
+        </div>
+    </div>
+
 
     <div class="control-group">
         <label for="category">Catégorie</label>

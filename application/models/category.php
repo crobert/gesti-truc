@@ -7,6 +7,7 @@ class Category extends CI_Model {
         $this->db->from('categories');
         return $this->db->get()->result();
     }
+
     function getById($id)
     {
         $this->db->select('*');

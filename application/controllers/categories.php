@@ -87,9 +87,6 @@ class Categories extends MY_Auth
 
     function edit($id)
     {
-        $this->load->model('category');
-        $c = $this->category->getById($id);
-
         //Règles pour tous les champs
         $this->load->library('form_validation');
         $this->form_validation->set_rules('name', 'Nom', 'trim|required|xss_clean');
@@ -99,14 +96,18 @@ class Categories extends MY_Auth
 
         if ($this->form_validation->run() == FALSE) {
 
+            $this->load->model('category');
             $this->load->model('collection');
+            $c = $this->category->getById($id);
             $collections = $this->collection->getList();
+            $myCollection = $this->collection->getById($c->collection_id);
 
             $data['titre_page'] = 'Aperçu';
             $data['vue'] = 'categories/edit_view.php';
             $data['menu'] = 'categories';
             $data['c'] = $c;
             $data['collections'] = $collections;
+            $data['collection'] = $myCollection;
             $this->load->helper('form');
             $this->load->view('template', $data);
 

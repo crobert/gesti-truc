@@ -99,16 +99,20 @@ class Items extends MY_Auth {
         if ($this->form_validation->run() == FALSE) {
 
             $this->load->model('category');
-            $categories = $this->category->getList();
+            $this->load->model('collection');
+            $myCategorie = $this->category->getById($i->category_id);
+            $collection = $myCategorie->collection_id;
+            $myCollection = $this->collection->getById($collection);
+            $categories = $this->category->getByCollection($collection);
 
             $data['titre_page'] = 'Aperçu';
             $data['vue'] = 'items/edit_view.php';
             $data['menu'] = 'items';
             $data['i'] = $i;
             $data['categories'] = $categories;
+            $data['collection'] = $myCollection;
             $this->load->helper('form');
             $this->load->view('template', $data);
-
         } else {
             //$now = new DateTime("now", new DateTimeZone('Europe/Paris'));
             $this->item->update($id,$this->input->post());
